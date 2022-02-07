@@ -1,0 +1,1 @@
+a="mack",console.log(a);
