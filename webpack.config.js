@@ -1,26 +1,20 @@
-const path = require('path');
-
+const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 module.exports = {
-  //...
-  devServer: {
-    static: {
-      directory: path.join(__dirname, './dist'),
-    },
-    compress: true,
-    port: 8080,
+  mode: 'development',
+  entry: {
+    main: './src/index.js', //можно добавлять точки входа
   },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-},
-    module: {
-      rules: [
-        {
-          test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
-        },
-      ],
-    },
-  mode: 'production',
-};
+  output: {
+    filename:'[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HTMLWebpackPlugin({
+      title: 'BlockExplorer',
+      template: './src/index.html'
+    }),
+    new CleanWebpackPlugin()
+  ]
+}
