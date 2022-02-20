@@ -1,11 +1,13 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/index.js', //можно добавлять точки входа
+    index: './src/index.js', //можно добавлять точки входа
+    header: './src/header/header.js'
   },
   output: {
     filename:'[name].[contenthash].js',
@@ -18,8 +20,12 @@ module.exports = {
 },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'BlockExplorer',
-      template: './src/index.html'
+      filename: 'index.html',
+      template: 'src/index.html'
+    }),
+    new HTMLWebpackPlugin({  
+      filename: 'header.html',
+      template: 'src/header/header.html'
     }),
     new CleanWebpackPlugin()
   ],
@@ -34,5 +40,21 @@ module.exports = {
       use: ['file-loader']
     }
   ]
+  },
+  devServer: {
+    hot: false
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
   }
 }
