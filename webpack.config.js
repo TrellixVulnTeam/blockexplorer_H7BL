@@ -1,16 +1,17 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: 'development',
+  target: 'web',
   entry: {
     index: './src/index.js', //можно добавлять точки входа
-    header: './src/header/header.js'
   },
   output: {
-    filename:'[name].[contenthash].js',
+    filename:'[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   performance: {
@@ -23,11 +24,12 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html'
     }),
-    new HTMLWebpackPlugin({  
-      filename: 'header.html',
-      template: 'src/header/header.html'
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/header.html", to: "" }
+      ],
     }),
-    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
@@ -37,12 +39,17 @@ module.exports = {
     },
     {
       test: /\.(png|jpg|svg)$/,
-      use: ['file-loader']
+      use: 'file-loader?name=[name].[ext]'
     }
   ]
   },
   devServer: {
-    hot: false
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 8080,
+    liveReload: false
   },
   optimization: {
     minimize: true,
