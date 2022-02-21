@@ -1,8 +1,9 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -11,7 +12,7 @@ module.exports = {
     index: './src/index.js', //can add more entry points
   },
   output: {
-    filename:'[name].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
@@ -21,22 +22,25 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new CopyPlugin({
-      patterns: [
-        { from: "src/header.html", to: "" } //can add more pages to dist
-      ],
+      patterns: [{
+        from: "src/header.html", to: "" //can add more pages to dist
+      }],
     }),
+    new MiniCssExtractPlugin({ //load css to file
+      filename: '[name].css'
+    })
   ],
   module: {
     rules: [
       {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'] //style import
-    },
-    {
-      test: /\.(png|jpg|svg)$/,
-      use: 'file-loader?name=[name].[ext]' //images import
-    }
-  ]
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'] //style import
+      },
+      {
+        test: /\.(png|jpg|svg)$/,
+        use: 'file-loader?name=[name].[ext]' //images import
+      }
+    ]
   },
   devServer: {
     static: {
@@ -52,13 +56,13 @@ module.exports = {
     },
     minimize: true,
     minimizer: [
-      new TerserPlugin({ //optimization remove liecense files
+      new TerserPlugin({
         terserOptions: {
           format: {
-            comments: false,
+            comments: true, //false to remove comments from bundled files
           },
         },
-        extractComments: false,
+        extractComments: false, //false to remove license files
       }),
     ],
   }
