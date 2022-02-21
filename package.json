@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode development",
     "dev_watch": "webpack --mode development --watch",
-    "dev_server": "webpack-dev-server --mode development"
+    "dev_server": "webpack-dev-server --mode development --progress"
   },
   "repository": {
     "type": "git",

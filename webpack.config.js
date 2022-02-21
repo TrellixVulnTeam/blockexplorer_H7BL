@@ -8,17 +8,12 @@ module.exports = {
   mode: 'development',
   target: 'web',
   entry: {
-    index: './src/index.js', //можно добавлять точки входа
+    index: './src/index.js', //can add more entry points
   },
   output: {
     filename:'[name].js',
     path: path.resolve(__dirname, 'dist')
   },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-},
   plugins: [
     new HTMLWebpackPlugin({
       filename: 'index.html',
@@ -27,7 +22,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: "src/header.html", to: "" }
+        { from: "src/header.html", to: "" } //can add more pages to dist
       ],
     }),
   ],
@@ -35,11 +30,11 @@ module.exports = {
     rules: [
       {
       test: /\.css$/,
-      use: ['style-loader', 'css-loader'] //добавляем ипорт стилей
+      use: ['style-loader', 'css-loader'] //style import
     },
     {
       test: /\.(png|jpg|svg)$/,
-      use: 'file-loader?name=[name].[ext]'
+      use: 'file-loader?name=[name].[ext]' //images import
     }
   ]
   },
@@ -52,9 +47,12 @@ module.exports = {
     liveReload: false
   },
   optimization: {
+    splitChunks: {
+      chunks: 'all' //optimization for libraries load
+    },
     minimize: true,
     minimizer: [
-      new TerserPlugin({
+      new TerserPlugin({ //optimization remove liecense files
         terserOptions: {
           format: {
             comments: false,
