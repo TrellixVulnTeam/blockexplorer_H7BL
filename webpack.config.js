@@ -16,16 +16,20 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new HTMLWebpackPlugin({
+    new HTMLWebpackPlugin({ //can add more pages to dist
       filename: 'index.html',
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(),
-    new CopyPlugin({
-      patterns: [{
-        from: "src/header.html", to: "" //can add more pages to dist
-      }],
+    new HTMLWebpackPlugin({
+      filename: 'tx.html',
+      template: 'src/tx.html'
     }),
+    new CleanWebpackPlugin(),
+    // new CopyPlugin({
+    //   patterns: [{
+    //     from: "src/tx.html", to: "" //can add more pages to dist
+    //   }],
+    // }),
     new MiniCssExtractPlugin({ //load css to file
       filename: '[name].css'
     })

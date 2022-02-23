@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -15,7 +15,9 @@
                     <img src="bitcoin_logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                     rublock.io
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,8 +58,50 @@
             </div>
         </nav>
     </div>
-
-    <h1 id="h1">asdfas</h1>
     
+        <!-- БЛОК ДАННЫХ ОБ АДРЕСЕ С QR КОДОМ -->
+        <!-- TODO проверить адаптивность, адрес наезжает на QR код DONE -->
+        <!-- TODO адрес не копируется в мобильной версии -->
+        <!-- TODO мигающий курсор печати возле QRcode -->
+        <div class="container mt-3">
+          <div class="alert alert-light" id="address_container">   
+            <div id="grid_0">
+              <a id="qr_code" class="qr_code"></a>
+            </div>
+            <div id="grid_1">
+              <div class="address">
+                <span class="copy_button" id="old">
+                  <i class="far fa-copy"></i>
+                </span>
+                <span class="copy_button" id="new" hidden="hidden">
+                  <i class="fas fa-copy"></i>
+                </span>
+                <span id="address"></span>
+              </div>
+              <span class="balance"><span style="color: #000000;">balance </span><b>0.03752391</b></span>
+              <span class="numTx" >transactions <b>279</b></span>
+            </div>
+          </div>
+        </div>
+    
+        <!-- НУМЕРАЦИЯ СТРАНИЦ (PAGINATION) СВЕРХУ -->
+        <!-- TODO сделать автоудаление если меньше 2 страниц -->
+        <!-- TODO сделать пагинацию снизу DONE -->
+        <div class="pagination_container">
+          <div id="pagination_wrapper" class="pagination_wrapper"></div>
+        </div>
+    
+        <!-- БЛОКИ С ТРАНЗАКЦИЙ -->
+        <!-- TODO проверить время -->
+        <!-- TODO проверить адаптивность, длинный хэш вылазиет за ширину экрана телефона DONE -->
+        <div class="container mt-3" id="table-body"></div>
+    
+        <!-- НУМЕРАЦИЯ СТРАНИЦ (PAGINATION) СНИЗУ -->
+        <div class="pagination_container">
+          <div id="pagination_wrapper_down" class="pagination_wrapper"></div>
+        </div>
+
+        <h1 id="h1">asdfas</h1>
+
 </body>
 </html>
