@@ -9,7 +9,7 @@ module.exports = {
   mode: 'development',
   target: 'web',
   entry: {
-    index: './src/index.js', //can add more entry points
+    bundle: './src/app.js', //can add more entry points
   },
   output: {
     filename: '[name].js',
@@ -18,11 +18,11 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({ //can add more pages to dist
       filename: 'index.html',
-      template: 'src/index.html'
+      template: 'src/html/index.html'
     }),
     new HTMLWebpackPlugin({
       filename: 'tx.html',
-      template: 'src/tx.html'
+      template: 'src/html/tx.html'
     }),
     new CleanWebpackPlugin(),
     // new CopyPlugin({
