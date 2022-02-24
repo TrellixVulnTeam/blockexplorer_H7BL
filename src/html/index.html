@@ -48,9 +48,9 @@
                     <!-- МОДУЛЬ ПОИСКА -->
                     <!-- TODO сделать чтобы не запоминал адреса, перед релизом -->
                     <!-- TODO обработать неверный ввод -->
-                    <form class="d-flex" action="tx.html">
+                    <form class="d-flex" id="form">
                         <input class="form-control me-2" type="search" placeholder="Введите адрес вашего кошелька" aria-label="Search" name="user_search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit" onclick="addressEndpoint()">Search</button>
                     </form>
                 </div>
             </div>
