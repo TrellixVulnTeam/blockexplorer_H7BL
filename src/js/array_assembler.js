@@ -1,5 +1,5 @@
 //process raw array
-export default function arrayAssembler(array) {
+function arrayAssembler(array) {
 
     const arr = array.txrefs
 
@@ -31,4 +31,6 @@ export default function arrayAssembler(array) {
     return arr3
 
 }
+
+export { arrayAssembler }
 
