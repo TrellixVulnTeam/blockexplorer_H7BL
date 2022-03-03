@@ -37,7 +37,6 @@ function showTx (show_tx){
   
         wrapper.innerHTML = ``
         wrapper_down.innerHTML = ``
-        console.log('Pages:', pages)
   
         var maxLeft = (state.page - Math.floor(state.window / 2))
         var maxRight = (state.page + Math.floor(state.window / 2))

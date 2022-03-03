@@ -1,7 +1,5 @@
 //process raw array
-function arrayAssembler(array) {
-
-    const arr = array.txrefs
+function arrayAssembler(arr) {
 
     let arr2 = []
     //ПРИВОДИТ arr[i].value К ОТРИЦАТЕЛЬНЫМ ЗНАЧЕНИЯМ И ДОБАВЛЯЕТ ТОЛЬКО НУЖНОЕ В arr2 ИЗ arr
