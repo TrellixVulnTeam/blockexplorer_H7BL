@@ -51,11 +51,10 @@
                     <!-- МОДУЛЬ ПОИСКА -->
                     <!-- TODO сделать чтобы не запоминал адреса, перед релизом -->
                     <!-- TODO обработать неверный ввод -->
-                    <form class="d-flex" id="form">
-                        <input class="form-control me-2" type="search" placeholder="Введите адрес вашего кошелька"
+                    <form class="d-flex" name="form">
+                        <input class="form-control me-2" type="text" placeholder="Введите адрес вашего кошелька"
                             aria-label="Search" name="user_search">
-                        <button class="btn btn-outline-success" type="submit"
-                            onclick="addressEndpoint()">Search</button>
+                        <button class="btn btn-outline-success" type="submit" name="button_search">Search</button>
                     </form>
                 </div>
             </div>
@@ -64,23 +63,10 @@
 
     <span id="address_container_div"></span>
 
+    <span id="tx_container_div"></span>
 
-    <!-- НУМЕРАЦИЯ СТРАНИЦ (PAGINATION) СВЕРХУ -->
-    <!-- TODO сделать автоудаление если меньше 2 страниц -->
-    <!-- TODO сделать пагинацию снизу DONE -->
-    <div class="pagination_container">
-        <div id="pagination_wrapper" class="pagination_wrapper"></div>
-    </div>
 
-    <!-- БЛОКИ С ТРАНЗАКЦИЙ -->
-    <!-- TODO проверить время -->
-    <!-- TODO проверить адаптивность, длинный хэш вылазиет за ширину экрана телефона DONE -->
-    <div class="container mt-3" id="table-body"></div>
 
-    <!-- НУМЕРАЦИЯ СТРАНИЦ (PAGINATION) СНИЗУ -->
-    <div class="pagination_container">
-        <div id="pagination_wrapper_down" class="pagination_wrapper"></div>
-    </div>
 
 </body>
 

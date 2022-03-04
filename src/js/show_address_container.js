@@ -1,4 +1,8 @@
+console.log('show_address_container.js starts')
+
 function showAddressContainer(user_address, user_balance, user_tx) {
+
+    console.log('showAddressContainer() starts')
 
     if (!document.getElementById('address_container')) {
         document.getElementById('address_container_div').insertAdjacentHTML('afterend', `

@@ -2,9 +2,31 @@
 import { arrayAssembler } from './array_assembler.js'
 import $ from 'jquery'
 
-"use strict";
+console.log('show_tx.js starts')
+
+let element = document.getElementById("tx_container_div");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);
+}
+
+
+if (!document.getElementById('table-body')) {
+  document.getElementById('tx_container_div').insertAdjacentHTML('afterend', `
+  <div class="pagination_container">
+    <div id="pagination_wrapper" class="pagination_wrapper"></div>
+  </div>
+  <div class="container mt-3" id="table-body"></div>
+  <div class="pagination_container">
+    <div id="pagination_wrapper_down" class="pagination_wrapper"></div>
+  </div>
+  `)
+}
 
 function showTx (show_tx){
+
+  console.log(show_tx)
+
+    console.log('show_tx() starts')
 
     var state = {
         'querySet': show_tx,
@@ -78,6 +100,9 @@ function showTx (show_tx){
       }
   
       function buildTable() {
+
+        console.log('buildTable()')
+
         var table = $('#table-body')
   
         var data = pagination(state.querySet, state.page, state.rows)

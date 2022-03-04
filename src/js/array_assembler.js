@@ -1,5 +1,10 @@
 //process raw array
+
+console.log('array_assembler.js starts')
+
 function arrayAssembler(arr) {
+
+    console.log('arrayAssembler() starts')
 
     let arr2 = []
     //ПРИВОДИТ arr[i].value К ОТРИЦАТЕЛЬНЫМ ЗНАЧЕНИЯМ И ДОБАВЛЯЕТ ТОЛЬКО НУЖНОЕ В arr2 ИЗ arr
