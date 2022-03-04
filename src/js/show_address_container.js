@@ -21,8 +21,8 @@ function showAddressContainer(user_address, user_balance, user_tx) {
                 </span>
                 <span id="user_address"></span>
                 </div>
-                <span class="balance"><span style="color: #000000;">balance </span><b id="balance">0.03752391</b></span>
-                <span class="numTx" >transactions <b id="number_of_tx">279</b></span>
+                <span class="balance"><span style="color: #000000;">balance </span><b id="balance"></b></span>
+                <span class="numTx" >transactions <b id="number_of_tx"></b></span>
             </div>
             </div>
             </div>
