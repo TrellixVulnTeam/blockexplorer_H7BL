@@ -1,3 +1,5 @@
+import QRCode from 'qrcode'
+
 console.log('show_address_container.js starts')
 
 function showAddressContainer(user_address, user_balance, user_tx) {
@@ -7,24 +9,24 @@ function showAddressContainer(user_address, user_balance, user_tx) {
     if (!document.getElementById('address_container')) {
         document.getElementById('address_container_div').insertAdjacentHTML('afterend', `
             <div class="container mt-3">
-            <div class="alert alert-light" id="address_container">   
-            <div id="grid_0">
-                <a id="qr_code" class="qr_code"></a>
-            </div>
-            <div id="grid_1">
-                <div class="address">
-                <span class="copy_button" id="old">
-                    <i class="far fa-copy"></i>
-                </span>
-                <span class="copy_button" id="new" hidden="hidden">
-                    <i class="fas fa-copy"></i>
-                </span>
-                <span id="user_address"></span>
+                <div class="alert alert-light" id="address_container">   
+                    <div id="grid_0">
+                    <canvas id="qr_code"></canvas>
+                    </div>
+                    <div id="grid_1">
+                        <div class="address">
+                        <span class="copy_button" id="old">
+                            <i class="far fa-copy"></i>
+                        </span>
+                        <span class="copy_button" id="new" hidden="hidden">
+                            <i class="fas fa-copy"></i>
+                        </span>
+                        <span id="user_address"></span>
+                        </div>
+                        <span class="balance"><span style="color: #000000;">balance </span><b id="balance"></b></span>
+                        <span class="numTx" >transactions <b id="number_of_tx"></b></span>
+                    </div>
                 </div>
-                <span class="balance"><span style="color: #000000;">balance </span><b id="balance"></b></span>
-                <span class="numTx" >transactions <b id="number_of_tx"></b></span>
-            </div>
-            </div>
             </div>
         `)
     }
@@ -39,8 +41,17 @@ function showAddressContainer(user_address, user_balance, user_tx) {
         })
         return b
     };
+
     document.getElementById('balance').innerHTML = ammountChange()
 
+    var qr_code = document.getElementById('qr_code')
+
+    QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: 'H' }, function (error) {
+        if (error) console.error(error)
+        console.log('success!');
+      })
 }
+
+
 
 export { showAddressContainer }
