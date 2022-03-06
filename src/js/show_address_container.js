@@ -1,4 +1,5 @@
 import QRCode from 'qrcode'
+import $ from 'jquery'
 
 console.log('show_address_container.js starts')
 
@@ -15,11 +16,8 @@ function showAddressContainer(user_address, user_balance, user_tx) {
                     </div>
                     <div id="grid_1">
                         <div class="address">
-                        <span class="copy_button" id="old">
+                        <span class="copy_button_old">
                             <i class="far fa-copy"></i>
-                        </span>
-                        <span class="copy_button" id="new" hidden="hidden">
-                            <i class="fas fa-copy"></i>
                         </span>
                         <span id="user_address"></span>
                         </div>
@@ -50,7 +48,18 @@ function showAddressContainer(user_address, user_balance, user_tx) {
         if (error) console.error(error)
         console.log('success!');
       })
+
+    var copy_button = document.querySelector(".copy_button_old")
+    copy_button.innerHTML = `<i class="far fa-copy"></i>`
+   
+    copy_button.onclick = function() {
+        copy_button.innerHTML = `<i class="fas fa-copy"></i>`
+        navigator.clipboard.writeText(user_address)
+    };
+
 }
+
+
 
 
 

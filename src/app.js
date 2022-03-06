@@ -15,5 +15,6 @@ import { addressEndpoint } from './js/api.js'
 //TO DO npm QRCode
 //TO DO остается старый адрес контейнер если нет транзацкий в блочейне или введены неверные данные
 //TO DO обработка ошибочного запроса регулярным выражением google regex bitcoin address
+//TO DO анимация загрузки страницы
 
 console.log('app.js starts')
