@@ -1,6 +1,10 @@
 import './styles/styles.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
 import $ from 'jquery'
 import logo from './img/bitcoin_logo.png'
 import { addressEndpoint } from './js/api.js'
