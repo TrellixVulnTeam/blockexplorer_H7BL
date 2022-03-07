@@ -5,8 +5,6 @@ import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
-import $ from 'jquery'
-import logo from './img/bitcoin_logo.png'
 import { addressEndpoint } from './js/api.js'
 
 //TO DO почему-то первый запрос на сервер отрпавляется один раз, второй запрос 2 раза, третий три и тд DONE
@@ -16,5 +14,6 @@ import { addressEndpoint } from './js/api.js'
 //TO DO остается старый адрес контейнер если нет транзацкий в блочейне или введены неверные данные
 //TO DO обработка ошибочного запроса регулярным выражением google regex bitcoin address
 //TO DO анимация загрузки страницы
+//TO DO кнопка удалить из поиска
 
 console.log('app.js starts')

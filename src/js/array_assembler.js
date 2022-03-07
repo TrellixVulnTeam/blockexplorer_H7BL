@@ -1,5 +1,3 @@
-//process raw array
-
 console.log('array_assembler.js starts')
 
 function arrayAssembler(arr) {
@@ -36,4 +34,3 @@ function arrayAssembler(arr) {
 }
 
 export { arrayAssembler }
-

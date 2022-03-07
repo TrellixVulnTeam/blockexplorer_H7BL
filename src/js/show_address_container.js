@@ -1,5 +1,4 @@
 import QRCode from 'qrcode'
-import $ from 'jquery'
 
 console.log('show_address_container.js starts')
 
@@ -7,19 +6,19 @@ function showAddressContainer(user_address, user_balance, user_tx) {
 
     console.log('showAddressContainer() starts')
 
-    if (!document.getElementById('address_container')) {
-        document.getElementById('address_container_div').insertAdjacentHTML('afterend', `
-            <div class="container mt-3">
+    if (!document.querySelector('#address_container')) {
+        document.querySelector('#address_container_div').insertAdjacentHTML('afterend', `
+            <div class="container mt-3" id="address_container_div_mt-3">
                 <div class="alert alert-light" id="address_container">   
                     <div id="grid_0">
-                    <canvas id="qr_code"></canvas>
+                        <canvas id="qr_code"></canvas>
                     </div>
                     <div id="grid_1">
                         <div class="address">
-                        <span class="copy_button_old">
-                            <i class="far fa-copy"></i>
-                        </span>
-                        <span id="user_address"></span>
+                            <span id="copy_button_old">
+                                <i class="far fa-copy"></i>
+                            </span>
+                            <span id="user_address"></span>
                         </div>
                         <span class="balance"><span style="color: #000000;">balance </span><b id="balance"></b></span>
                         <span class="numTx" >transactions <b id="number_of_tx"></b></span>
@@ -29,8 +28,8 @@ function showAddressContainer(user_address, user_balance, user_tx) {
         `)
     }
 
-    document.getElementById('user_address').innerHTML = user_address
-    document.getElementById('number_of_tx').innerHTML = user_tx
+    document.querySelector('#user_address').innerHTML = user_address
+    document.querySelector('#number_of_tx').innerHTML = user_tx
 
     function ammountChange() { //ФОРМАТИРУЕТ СУММУ
         let a = String((user_balance / 100000000).toFixed(8))
@@ -40,19 +39,16 @@ function showAddressContainer(user_address, user_balance, user_tx) {
         return b
     };
 
-    document.getElementById('balance').innerHTML = ammountChange()
+    document.querySelector('#balance').innerHTML = ammountChange()
 
-    var qr_code = document.getElementById('qr_code')
+    var qr_code = document.querySelector('#qr_code')
 
-    QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: 'H' }, function (error) {
-        if (error) console.error(error)
-        console.log('success!');
-      })
+    QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: 'H' })
 
-    var copy_button = document.querySelector(".copy_button_old")
+    var copy_button = document.querySelector("#copy_button_old")
     copy_button.innerHTML = `<i class="far fa-copy"></i>`
-   
-    copy_button.onclick = function() {
+
+    copy_button.onclick = function () {
         copy_button.innerHTML = `<i class="fas fa-copy"></i>`
         navigator.clipboard.writeText(user_address)
     };
