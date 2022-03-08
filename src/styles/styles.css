@@ -123,3 +123,20 @@ body {
     overflow: auto;
     padding: 5px 0;
 }
+
+.container_home_page {
+    display: grid; 
+    grid-auto-flow: row dense; 
+    grid-auto-columns: 50%; 
+    gap: 0px 0px; 
+  }
+
+/* БЛОК ДАННЫХ ОБ АДРЕСЕ */
+#price_container {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-left: auto;
+    width: 100%;
+}
+
+
+

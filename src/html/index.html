@@ -10,12 +10,12 @@
 
 <body>
 
+    <!-- HEADER -->
     <div class="container-fluid p-0" id="header_div">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="bitcoin_logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    rublock.io
+                <a class="navbar-brand" href="index.html" id="logo">
+                    &nbsp rublock.io
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -59,6 +59,29 @@
                 </div>
             </div>
         </nav>
+    </div>
+
+    <div class="container" id="homepage_container">
+        <div class="row">
+            <div class="col">
+                <div class="container mt-3">
+                    <div class="alert alert-light" id="price_container">
+                        <h1>bitcoin network load</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container mt-3">
+                    <div class="alert alert-light" id="price_container">
+                        <div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe
+                                src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
+                                width="100%" height="100%" scrolling="auto" marginwidth="0" marginheight="0"
+                                frameborder="0" border="0"
+                                style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <span id="address_container_div"></span>

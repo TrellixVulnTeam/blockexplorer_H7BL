@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
+import bitcoin_logo from './img/bitcoin_logo.png'
 import { addressEndpoint } from './js/api.js'
 
 //TO DO почему-то первый запрос на сервер отрпавляется один раз, второй запрос 2 раза, третий три и тд DONE
@@ -17,3 +18,6 @@ import { addressEndpoint } from './js/api.js'
 //TO DO кнопка удалить из поиска
 
 console.log('app.js starts')
+
+let logo = document.querySelector('#logo')
+logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" height="30" class="d-inline-block align-text-top">`)
