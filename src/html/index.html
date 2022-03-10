@@ -61,17 +61,18 @@
         </nav>
     </div>
 
+
     <div class="container" id="homepage_container">
         <div class="row">
-            <div class="col">
-                <div class="container mt-3">
+            <div class="col-sm" style="padding: 10px;">
+                <div class="container mt-3" style="padding:0">
                     <div class="alert alert-light" id="price_container">
-                        <h1>bitcoin network load</h1>
+                        <div id="chart_div"></div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="container mt-3">
+            <div class="col-sm" style="padding: 10px;">
+                <div class="container mt-3" style="padding:0">
                     <div class="alert alert-light" id="price_container">
                         <div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe
                                 src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
@@ -82,7 +83,67 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm" style="padding: 10px;">
+                <h1>someting1</h1>
+            </div>
+            <div class="col-sm" style="padding: 10px;">
+               <h1>someting2</h1>
+            </div>
+        </div>
     </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['gauge'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['', 80],
+                ['', 55],
+            ]);
+
+            var options = {
+                width: 400, height: 120,
+                redFrom: 90, redTo: 100,
+                yellowFrom: 75, yellowTo: 90,
+                minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+
+            setInterval(function () {
+                data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+                chart.draw(data, options);
+            }, 13000);
+            setInterval(function () {
+                data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+                chart.draw(data, options);
+            }, 5000);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <span id="address_container_div"></span>
 
