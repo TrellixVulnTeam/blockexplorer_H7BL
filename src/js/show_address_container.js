@@ -58,8 +58,4 @@ function showAddressContainer(user_address, user_balance, user_tx) {
 
 }
 
-
-
-
-
 export { showAddressContainer }

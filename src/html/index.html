@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <title>ruBlock.io</title>
 </head>
 
@@ -66,13 +67,21 @@
         <div class="row">
             <div class="col-sm" style="padding: 10px;">
                 <div class="container mt-3" style="padding:0">
-                    <div class="alert alert-light" id="price_container">
-                        <div id="chart_div"></div>
+                    <div class="container mt-3" style="padding:0; margin-top:0;">
+                            <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by
+                                    ZingChart</a></div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm" style="padding: 10px;">
-                <div class="container mt-3" style="padding:0">
+        </div>
+        <div class="row">
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="alert alert-light">
+                    <div id="chart_div"></div>
+                </div>
+            </div>
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding:0;">
                     <div class="alert alert-light" id="price_container">
                         <div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe
                                 src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
@@ -81,14 +90,6 @@
                                 style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm" style="padding: 10px;">
-                <h1>someting1</h1>
-            </div>
-            <div class="col-sm" style="padding: 10px;">
-               <h1>someting2</h1>
             </div>
         </div>
     </div>

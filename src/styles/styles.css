@@ -139,5 +139,16 @@ body {
     padding: 0;
 }
 
+/* GAUGE */
+#myChart {
+    height: 500px;
+    width: 100%;
+    /* min-height: 150px; */
+  }
+  
+  .zc-ref {
+    display: none;
+  }
+
 
 

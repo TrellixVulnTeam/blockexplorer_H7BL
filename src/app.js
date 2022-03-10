@@ -7,6 +7,8 @@ import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 import bitcoin_logo from './img/bitcoin_logo.png'
 import { addressEndpoint } from './js/api.js'
+import { gauge } from './js/gauge.js' 
+
 
 //TO DO почему-то первый запрос на сервер отрпавляется один раз, второй запрос 2 раза, третий три и тд DONE
 //TO DO GET error 429 слишком много запросов, зарегистрировать токен чтобы понимать свой лимит
@@ -21,3 +23,5 @@ console.log('app.js starts')
 
 let logo = document.querySelector('#logo')
 logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" height="30" class="d-inline-block align-text-top">`)
+
+gauge()
