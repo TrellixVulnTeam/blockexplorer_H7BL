@@ -5,10 +5,22 @@ function gauge() {
     console.log('gauge() starts')
 
     window.feed = function (callback) {
-        var tick = {};
-        tick.plot0 = Math.ceil(350 + (Math.random() * 500)); //загрузить собранные данные сюда
-        console.log(tick.plot0)
-        callback(JSON.stringify(tick));
+
+        let blockchain_endpoint = new Promise(async function (resolve, reject) {
+            let response = await fetch('https://api.blockchair.com/bitcoin/stats') //обработать ошибку
+            if (response.ok) { // если HTTP-статус в диапазоне 200-299
+                let data = await response.json()
+                resolve(data)
+            } else {
+                console.log('ошибка запроса на сервер')
+            }
+        })
+        blockchain_endpoint.then(data => {
+            let mempool_transactions = data.data.mempool_transactions
+            var tick = {};
+            tick.plot0 = mempool_transactions //загрузить собранные данные сюда
+            callback(JSON.stringify(tick))
+        })
     };
 
     var myConfig = {
