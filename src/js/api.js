@@ -16,6 +16,14 @@ document.forms.form.onsubmit = function (event) {
     let pagination_down_data = document.querySelector('#pagination_wrapper_down')
     pagination_down_data.innerHTML = ''
 
+    let address_container = document.querySelector('#address_container_div')
+    address_container.innerHTML = ''
+
+    let alert = document.querySelector('#alert')
+    if (alert) {
+        alert.innerHTML = ''
+    }
+
     let user_search = document.forms.form.user_search.value
 
     let address_endpoint = new Promise(async function (resolve, reject) {
@@ -24,18 +32,18 @@ document.forms.form.onsubmit = function (event) {
             let data = await response.json()
             resolve(data)
         } else {
-            document.querySelector('#not_found').insertAdjacentHTML('afterend', `
-                <div class="container mt-3">
+
+            let homepage_container = document.querySelector('#homepage_container')
+            homepage_container.innerHTML = ''
+
+            document.querySelector('#header_div').insertAdjacentHTML('afterend', `
+                <div class="container mt-3" id="alert">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Ошибка ввода данных.</strong> Проверьте ваш адрес.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
             `)
-            let container = document.querySelector("#address_container_div_mt-3");
-            while (container.firstChild) {
-                container.removeChild(container.firstChild);
-            }
         }
     })
     address_endpoint.then(data => {

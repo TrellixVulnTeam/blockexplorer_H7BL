@@ -3,12 +3,6 @@ import $ from 'jquery'
 
 console.log('show_tx.js starts')
 
-let element = document.querySelector("#tx_container_div");
-while (element.firstChild) {
-  element.removeChild(element.firstChild);
-}
-
-
 if (!document.querySelector('#table-body')) {
   document.querySelector('#tx_container_div').insertAdjacentHTML('afterend', `
     <div class="pagination_container">

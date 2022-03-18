@@ -10,7 +10,7 @@ function showAddressContainer(user_address, user_balance, user_tx) {
     clear.innerHTML = ``
 
     if (!document.querySelector('#address_container')) {
-        document.querySelector('#address_container_div').insertAdjacentHTML('afterend', `
+        document.querySelector('#address_container_div').insertAdjacentHTML('beforeend', `
             <div class="container mt-3" id="address_container_div_mt-3">
                 <div class="alert alert-light" id="address_container">   
                     <div id="grid_0">
