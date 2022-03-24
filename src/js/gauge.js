@@ -29,13 +29,13 @@ function gauge() {
             fontSize: 14 //шрифт значений на спидометре
         },
         plotarea: {
-            marginTop: 40 //отступ
+            marginTop: 0 //отступ сверху
         },
         plot: {
-            size: '100%',
+            size: '100%', //длина стрелки
             valueBox: {
                 placement: 'center',
-                text: '%v\ntransactions in mempool queue', //подпись
+                text: '%v\ntransactions queue', //подпись
                 fontSize: 14, //шрифт значения снизу
                 // rules: [{
                 //     rule: '%v >= 700',
@@ -71,7 +71,7 @@ function gauge() {
                 visible: false
             },
             item: {
-                offsetR: 0,
+                offsetR: 0, //отступ цифр на спидометре
                 rules: [{
                     rule: '%i == 9',
                     offsetX: 15
@@ -79,7 +79,7 @@ function gauge() {
             },
             labels: ['100', '', '', '', '', '', '', '', '', '', '', ''],
             ring: {
-                size: 50, //толщина окружности
+                size: 10, //толщина окружности
                 rules: [{
                     rule: '%v <= 200000',
                     backgroundColor: '#E53935' //красный #E53935
