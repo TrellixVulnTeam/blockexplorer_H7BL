@@ -46,7 +46,7 @@ function showAddressContainer(user_address, user_balance, user_tx) {
 
     var qr_code = document.querySelector('#qr_code')
 
-    QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: 'H' })
+    QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: 'M' })
 
     var copy_button = document.querySelector("#copy_button_old")
     copy_button.innerHTML = `<i class="far fa-copy"></i>`

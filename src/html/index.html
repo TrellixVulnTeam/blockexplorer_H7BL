@@ -50,34 +50,39 @@
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <!-- МОДУЛЬ ПОИСКА -->
-                    <!-- TODO сделать чтобы не запоминал адреса, перед релизом -->
-                    <!-- TODO обработать неверный ввод -->
-                    <form class="d-flex" name="form">
-                        <input class="form-control me-2" type="search" placeholder="Введите адрес вашего кошелька"
-                            aria-label="Search" name="user_search">
-                        <button class="btn btn-outline-success" type="submit" name="button_search">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
     </div>
 
+    <!-- МОДУЛЬ ПОИСКА -->
+    <div class="container" id="search_field">
+        <form class="d-flex" name="form">
+            <input class="form-control me-2" type="search" placeholder="Введите адрес вашего кошелька"
+                aria-label="Search" name="user_search" style="margin-top: 12px;">
+            <button class="btn btn-outline-success" type="submit" name="button_search"
+                style="margin-top: 12px;">Search</button>
+        </form>
+    </div>
 
     <div class="container" id="homepage_container">
-
-
         <div class="row">
             <div class="col-sm" style="padding: 0px 10px 0px 10px;">
                 <div class="container mt-3" style="padding: 0px;">
                     <div class="alert alert-light" id="price_container">
-                        <div id="chart_div" style="width: 350px; height: 370px; margin: 50px auto auto auto;"></div>
+                        <!-- КОТИРОВКИ РАЗНЫХ ВАЛЮТ -->
+                        <div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe
+                                src="https://widget.coinlib.io/widget?type=full_v2&theme=light&cnt=8&pref_coin_id=1505&graph=yes"
+                                width="100%" height="540px" scrolling="auto" marginwidth="0" marginheight="0"
+                                frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm" style="padding: 0px 10px 0px 10px;">
                 <div class="container mt-3" style="padding: 0px;">
                     <div class="alert alert-light" id="price_container">
+                        <!-- ГРАФИК BTC -->
                         <div style="height: 540px; padding: 0px; margin: 0px; width: 100%;"><iframe
                                 src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
                                 width="100%" height="100%" scrolling="auto" marginwidth="0" marginheight="0"
@@ -87,38 +92,36 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding: 0px;">
+                    <div class="alert alert-light" id="price_container">
+                        <!-- ЗАГРУЗКА МЕМПУЛА -->
+                        <div id="chart_div" style="width: 350px; height: 370px; margin: 50px auto auto auto;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding: 0px;">
+                    <div class="alert alert-light" id="price_container">
+                        <h1>РАСПРЕДЕЛЕНИЕ ХЭШРЕЙТА</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding: 0px;">
+                    <div class="alert alert-light" id="price_container">
+                        <div style="height:auto; padding:0px; margin:0px; width: auto;"><iframe
+                                src="https://widget.coinlib.io/widget?type=converter&theme=light" width="400px"
+                                height="350px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0"
+                                border="0" style="border:0;margin:0;padding:0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
-
-        google.charts.load('current', { 'packages': ['gauge'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Label', 'Value'],
-                ['Mempool', 80]
-            ]);
-
-            var options = {
-                width: 350, height: 370,
-                redFrom: 90, redTo: 100,
-                yellowFrom: 75, yellowTo: 90,
-                minorTicks: 5
-            };
-
-            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-            chart.draw(data, options);
-
-            setInterval(function () {
-                data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-                chart.draw(data, options);
-            }, 13000);
-        }
-
-    </script>
 
 
 

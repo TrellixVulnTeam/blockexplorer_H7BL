@@ -36,7 +36,10 @@ document.forms.form.onsubmit = function (event) {
             let homepage_container = document.querySelector('#homepage_container')
             homepage_container.innerHTML = ''
 
-            document.querySelector('#header_div').insertAdjacentHTML('afterend', `
+            let search_field = document.querySelector('#search_field')
+            search_field.innerHTML = ''
+
+            document.querySelector('#search_field').insertAdjacentHTML('afterend', `
                 <div class="container mt-3" id="alert">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Ошибка ввода данных.</strong> Проверьте ваш адрес.
