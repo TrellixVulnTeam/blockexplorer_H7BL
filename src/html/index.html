@@ -96,8 +96,33 @@
             <div class="col-sm" style="padding: 0px 10px 0px 10px;">
                 <div class="container mt-3" style="padding: 0px;">
                     <div class="alert alert-light" id="price_container">
+                        <h2 align="center">Bitcoin network load</h2><br>
+                        <div id="chart_div"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding: 0px;">
+                    <div class="alert alert-light" id="price_container">
+                        <h2 align="center">Crypto converter</h2><br>
+                        <!-- Crypto Converter ⚡ Widget -->
+                        <div id="crypto_converter_div">
+                            <crypto-converter-widget shadow symbol live background-color="#FFFFFF" border-radius="0.48rem" fiat="united-states-dollar" crypto="ethereum" 
+                            amount="1" font-family="inherit" decimal-places="2">
+                            </crypto-converter-widget>
+                            <script async src="https://cdn.jsdelivr.net/gh/dejurin/crypto-converter-widget@1.5.2/dist/latest.min.js">
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-sm" style="padding: 0px 10px 0px 10px;">
+                <div class="container mt-3" style="padding: 0px;">
+                    <div class="alert alert-light" id="price_container"> -->
                         <!-- ЗАГРУЗКА МЕМПУЛА -->
-                        <div id="chart_div" style="width: 350px; height: 370px; margin: 50px auto auto auto;"></div>
+                        <!-- <div id="chart_div" style="width: 350px; height: 370px; margin: 50px auto auto auto;"></div>
                     </div>
                 </div>
             </div>
@@ -111,36 +136,18 @@
             <div class="col-sm" style="padding: 0px 10px 0px 10px;">
                 <div class="container mt-3" style="padding: 0px;">
                     <div class="alert alert-light" id="price_container">
-                        <div style="height:auto; padding:0px; margin:0px; width: auto;"><iframe
-                                src="https://widget.coinlib.io/widget?type=converter&theme=light" width="400px"
-                                height="350px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0"
-                                border="0" style="border:0;margin:0;padding:0;"></iframe>
-                        </div>
+                        <h2 align="center">Crypto converter</h2><br> -->
+                        <!-- Crypto Converter ⚡ Widget -->
+                        <!-- <crypto-converter-widget shadow symbol live background-color="#FFFFFF" border-radius="0.48rem" fiat="united-states-dollar" crypto="ethereum" 
+                        amount="1" font-family="inherit" decimal-places="2">
+                        </crypto-converter-widget>
+                        <script async src="https://cdn.jsdelivr.net/gh/dejurin/crypto-converter-widget@1.5.2/dist/latest.min.js">
+                        </script>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <span id="address_container_div"></span>
 
@@ -148,8 +155,18 @@
 
     <span id="tx_container_div"></span>
 
-
-
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted">© 2021 ruBlock, Inc</p>
+        </footer>
+      </div>
 
 </body>
 

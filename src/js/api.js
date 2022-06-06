@@ -36,9 +36,6 @@ document.forms.form.onsubmit = function (event) {
             let homepage_container = document.querySelector('#homepage_container')
             homepage_container.innerHTML = ''
 
-            let search_field = document.querySelector('#search_field')
-            search_field.innerHTML = ''
-
             document.querySelector('#search_field').insertAdjacentHTML('afterend', `
                 <div class="container mt-3" id="alert">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -52,7 +49,7 @@ document.forms.form.onsubmit = function (event) {
     address_endpoint.then(data => {
         let arr = data.txrefs
         let show_tx = arrayAssembler(arr) //returns a structured array
-        showTx(show_tx)//shows transactions and pagination
+        showTx(show_tx) //shows transactions and pagination
         let user_address = data.address
         let user_balance = data.balance
         let user_tx = data.n_tx

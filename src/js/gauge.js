@@ -11,11 +11,11 @@ function gauge() {
 
         var data = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
-            ['Mempool', 80]
+            ['', 100]
         ]);
 
         var options = {
-            width: 350, height: 350,
+            width: 330, height: 350,
             redFrom: 90, redTo: 100,
             yellowFrom: 75, yellowTo: 90,
             minorTicks: 5

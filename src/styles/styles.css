@@ -151,5 +151,25 @@ body {
     display: none;
   }
 
+  /* КОНВЕРТЕР */
+
+#crypto_converter_div {
+    width: 80%; /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+/* ЗАГРУЗКА СЕТИ */
+
+#chart_div {
+    width: 330px; /* Can be in percentage also. */
+    height: 350px;
+    margin: 1px auto 1px auto;
+    padding: 10px;
+    position: relative;
+}
+
 
 
