@@ -1,5 +1,6 @@
 /* СТИЛИ СТРАНИЦЫ С ТРАНЗАКЦИЯМИ */
 body {
+    margin: 0;
     width: 100%;
     height: 100%;
     background: rgb(255, 255, 255);
@@ -140,36 +141,23 @@ body {
     height: 545px;
 }
 
-/* GAUGE */
-#myChart {
-    height: 500px;
-    width: 100%;
-    /* min-height: 150px; */
-  }
-  
-  .zc-ref {
-    display: none;
-  }
-
-  /* КОНВЕРТЕР */
-
-#crypto_converter_div {
-    width: 80%; /* Can be in percentage also. */
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
+/* ОБЩИЙ КОНТЕЙНЕР ДЛЯ ВСЕГО */
+.main_page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* ЗАГРУЗКА СЕТИ */
-
-#chart_div {
-    width: 330px; /* Can be in percentage also. */
-    height: 350px;
-    margin: 1px auto 1px auto;
-    padding: 10px;
-    position: relative;
+/* КОНТЕЙНЕР ДЛЯ КОНТЕНТА (БЕЗ ХЭДЕРА И ФУТЕРА */
+.main_container {
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
+
+
+
 
 
 

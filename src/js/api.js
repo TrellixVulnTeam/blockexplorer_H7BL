@@ -39,7 +39,7 @@ document.forms.form.onsubmit = function (event) {
             document.querySelector('#search_field').insertAdjacentHTML('afterend', `
                 <div class="container mt-3" id="alert">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Ошибка ввода данных.</strong> Проверьте ваш адрес.
+                        <strong>Ошибка ввода данных.</strong> Проверьте ваш bitcoin адрес.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>

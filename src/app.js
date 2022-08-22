@@ -7,7 +7,6 @@ import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 import bitcoin_logo from './img/bitcoin_logo.png'
 import { addressEndpoint } from './js/api.js'
-import { gauge } from './js/gauge.js' 
 
 //TO DO GET error 429 слишком много запросов, зарегистрировать токен чтобы понимать свой лимит
 //TO DO анимация загрузки страницы
@@ -18,10 +17,11 @@ import { gauge } from './js/gauge.js'
 //TO DO header заполнить
 //TO DO footer заполнить
 //TO DO подробности транзакции hash link
+//TO DO при переходе на страницу с транзакциями переместить поиск в хэдер
 
-console.log('app.js starts')
 
-let logo = document.querySelector('#logo')
-logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" height="30" class="d-inline-block align-text-top">`)
+console.log('app.js starts');
 
-gauge()
+let logo = document.querySelector('#logo');
+logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" 
+height="30" class="d-inline-block align-text-top">`);
