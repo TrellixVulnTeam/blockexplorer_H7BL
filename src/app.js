@@ -17,11 +17,15 @@ import { addressEndpoint } from './js/api.js'
 //TO DO header заполнить
 //TO DO footer заполнить
 //TO DO подробности транзакции hash link
-//TO DO при переходе на страницу с транзакциями переместить поиск в хэдер
-
+//TO DO при переходе на страницу с транзакциями переместить поиск в хэдер DONE
+//TO DO сбивается маржин-топ у мэйн контейнера если ввести длинный адрес
+//TO DO перестала обрабатываться ошибка неправильного ввода (обработать через if?)
+//TO DO сделать пошиск в шапке пошире, надписи на английском
 
 console.log('app.js starts');
 
 let logo = document.querySelector('#logo');
 logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" 
 height="30" class="d-inline-block align-text-top">`);
+
+document.querySelector('#headerSearch').style.visibility = "hidden";

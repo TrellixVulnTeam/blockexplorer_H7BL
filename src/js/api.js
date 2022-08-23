@@ -2,39 +2,53 @@ import { arrayAssembler } from './array_assembler'
 import { showTx } from './show_tx.js'
 import { showAddressContainer } from './show_address_container.js'
 
-console.log('api.js starts')
+console.log('api.js starts');
 
-document.forms.form.onsubmit = function (event) {
-    event.preventDefault()
+let searchButton = document.querySelector('#searchButton');
+searchButton.addEventListener('click', () => {
+    let userInput = document.querySelector('#userInput').value;
+    document.querySelector('#search_field').remove();
+    runSearch(userInput);
+});
 
-    let table_body_data = document.querySelector('#table-body')
-    table_body_data.innerHTML = ''
+let headerSearchButton = document.querySelector('#headerSearchButton');
+headerSearchButton.addEventListener('click', () => {
+    let headerUserInput = document.querySelector('#headerUserInput').value;
+    runSearch(headerUserInput);
+});
 
-    let pagination_data = document.querySelector('#pagination_wrapper')
-    pagination_data.innerHTML = ''
+function runSearch(userInput) {
 
-    let pagination_down_data = document.querySelector('#pagination_wrapper_down')
-    pagination_down_data.innerHTML = ''
+    document.querySelector('#headerSearch').style.visibility = "visible";
 
-    let address_container = document.querySelector('#address_container_div')
-    address_container.innerHTML = ''
+    let table_body_data = document.querySelector('#table-body');
+    table_body_data.innerHTML = '';
 
-    let alert = document.querySelector('#alert')
+    let pagination_data = document.querySelector('#pagination_wrapper');
+    pagination_data.innerHTML = '';
+
+    let pagination_down_data = document.querySelector('#pagination_wrapper_down');
+    pagination_down_data.innerHTML = '';
+
+    let address_container = document.querySelector('#address_container_div');
+    address_container.innerHTML = '';
+
+    
+
+    let alert = document.querySelector('#alert');
     if (alert) {
-        alert.innerHTML = ''
+        alert.innerHTML = '';
     }
 
-    let user_search = document.forms.form.user_search.value
-
     let address_endpoint = new Promise(async function (resolve, reject) {
-        let response = await fetch('https://api.blockcypher.com/v1/btc/main/addrs/' + [user_search] + '?limit=9999') //обработать ошибку
+        let response = await fetch('https://api.blockcypher.com/v1/btc/main/addrs/' + [userInput] + '?limit=9999'); //обработать ошибку
         if (response.ok) { // если HTTP-статус в диапазоне 200-299
-            let data = await response.json()
-            resolve(data)
+            let data = await response.json();
+            resolve(data);
         } else {
 
-            let homepage_container = document.querySelector('#homepage_container')
-            homepage_container.innerHTML = ''
+            let homepage_container = document.querySelector('#homepage_container');
+            homepage_container.innerHTML = '';
 
             document.querySelector('#search_field').insertAdjacentHTML('afterend', `
                 <div class="container mt-3" id="alert">
@@ -43,16 +57,17 @@ document.forms.form.onsubmit = function (event) {
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
-            `)
-        }
-    })
+            `);
+        };
+    });
     address_endpoint.then(data => {
-        let arr = data.txrefs
-        let show_tx = arrayAssembler(arr) //returns a structured array
-        showTx(show_tx) //shows transactions and pagination
-        let user_address = data.address
-        let user_balance = data.balance
-        let user_tx = data.n_tx
-        showAddressContainer(user_address, user_balance, user_tx)//shows address container information
-    })
-}
+        let arr = data.txrefs;
+        let show_tx = arrayAssembler(arr); //returns a structured array
+        showTx(show_tx); //shows transactions and pagination
+        let user_address = data.address;
+        let user_balance = data.balance;
+        let user_tx = data.n_tx;
+        showAddressContainer(user_address, user_balance, user_tx); //shows address container information
+    }); 
+    
+};

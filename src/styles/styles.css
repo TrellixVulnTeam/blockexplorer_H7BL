@@ -149,7 +149,7 @@ body {
     min-height: 100vh;
 }
 
-/* КОНТЕЙНЕР ДЛЯ КОНТЕНТА (БЕЗ ХЭДЕРА И ФУТЕРА */
+/* КОНТЕЙНЕР ДЛЯ КОНТЕНТА */
 .main_container {
     margin-top: auto;
     margin-bottom: auto;
