@@ -5,14 +5,16 @@ import { showAddressContainer } from './show_address_container.js'
 console.log('api.js starts');
 
 let searchButton = document.querySelector('#searchButton');
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener('click', event => {
+    event.preventDefault();
     let userInput = document.querySelector('#userInput').value;
     document.querySelector('#search_field').remove();
     runSearch(userInput);
 });
 
 let headerSearchButton = document.querySelector('#headerSearchButton');
-headerSearchButton.addEventListener('click', () => {
+headerSearchButton.addEventListener('click', event => {
+    event.preventDefault();
     let headerUserInput = document.querySelector('#headerUserInput').value;
     runSearch(headerUserInput);
 });
@@ -32,14 +34,7 @@ function runSearch(userInput) {
 
     let address_container = document.querySelector('#address_container_div');
     address_container.innerHTML = '';
-
-    
-
-    let alert = document.querySelector('#alert');
-    if (alert) {
-        alert.innerHTML = '';
-    }
-
+  
     let address_endpoint = new Promise(async function (resolve, reject) {
         let response = await fetch('https://api.blockcypher.com/v1/btc/main/addrs/' + [userInput] + '?limit=9999'); //обработать ошибку
         if (response.ok) { // если HTTP-статус в диапазоне 200-299
@@ -50,7 +45,7 @@ function runSearch(userInput) {
             let homepage_container = document.querySelector('#homepage_container');
             homepage_container.innerHTML = '';
 
-            document.querySelector('#search_field').insertAdjacentHTML('afterend', `
+            document.querySelector('#searchError').insertAdjacentHTML('afterend', `
                 <div class="container mt-3" id="alert">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Ошибка ввода данных.</strong> Проверьте ваш bitcoin адрес.

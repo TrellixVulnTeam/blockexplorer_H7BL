@@ -26,6 +26,6 @@ console.log('app.js starts');
 
 let logo = document.querySelector('#logo');
 logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" 
-height="30" class="d-inline-block align-text-top">`);
+height="30" class="d-inline-block align-text-top" style="cursor: pointer;">`);
 
 document.querySelector('#headerSearch').style.visibility = "hidden";

@@ -25,7 +25,7 @@
                         <!-- ENTER CODE FOR BUTTONS -->
                     </ul>
                     <!-- HEADER SEARCH -->
-                    <form class="d-flex" onsubmit="return false" id="headerSearch">
+                    <form class="d-flex" id="headerSearch">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="headerUserInput">
                       <button class="btn btn-outline-success" type="submit" id="headerSearchButton">Search</button>
                     </form>
@@ -36,15 +36,17 @@
 
         <!-- CONTENT MODULE -->
         <main class="main_container">
+            <!-- SEARCH -->
             <div class="container" id="search_field">
                 <form class="d-flex" id="form" onsubmit="return false">
                     <input class="form-control me-2" type="search" placeholder="Введите адрес вашего bitcoin кошелька"
-                        aria-label="Search" id="userInput" style="margin-top: 12px;">
-                    <button class="btn btn-outline-success" type="submit" id="searchButton"
-                        style="margin-top: 12px;">Search</button>
+                        aria-label="Search" id="userInput">
+                    <div id="searchError"></div>
+                    <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
                 </form>
             </div>
 
+            <!-- DATA -->
             <div class="container" id="homepage_container"></div>
 
             <span id="address_container_div"></span>

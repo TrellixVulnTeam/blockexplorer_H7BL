@@ -18,7 +18,7 @@ function showAddressContainer(user_address, user_balance, user_tx) {
                     </div>
                     <div id="grid_1">
                         <div class="address">
-                            <span id="copy_button_old">
+                            <span id="copy_button_old" style="cursor: pointer;">
                                 <i class="far fa-copy"></i>
                             </span>
                             <span id="user_address"></span>
