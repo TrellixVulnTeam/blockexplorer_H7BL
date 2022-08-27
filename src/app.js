@@ -1,12 +1,13 @@
-import './styles/styles.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
-import bitcoin_logo from './img/bitcoin_logo.png'
-import { addressEndpoint } from './js/api.js'
+import "./styles/styles.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
+import "@fortawesome/fontawesome-free/js/fontawesome";
+import "@fortawesome/fontawesome-free/js/solid";
+import "@fortawesome/fontawesome-free/js/regular";
+import "@fortawesome/fontawesome-free/js/brands";
+import bitcoin_logo from "./img/bitcoin_logo.png";
+import { addressEndpoint } from "./js/api.js";
+import { runSearch } from "./js/api.js";
 
 //TO DO GET error 429 слишком много запросов, зарегистрировать токен чтобы понимать свой лимит
 //TO DO анимация загрузки страницы
@@ -22,10 +23,22 @@ import { addressEndpoint } from './js/api.js'
 //TO DO перестала обрабатываться ошибка неправильного ввода (обработать через if?)
 //TO DO сделать пошиск в шапке пошире, надписи на английском
 
-console.log('app.js starts');
+console.log("app.js starts");
 
-let logo = document.querySelector('#logo');
-logo.insertAdjacentHTML('beforebegin', `<img src=${bitcoin_logo} alt="" width="30" 
-height="30" class="d-inline-block align-text-top" style="cursor: pointer;">`);
+let logo = document.querySelector("#logo");
+logo.insertAdjacentHTML(
+  "beforebegin",
+  `<img src=${bitcoin_logo} alt="" width="30" 
+height="30" class="d-inline-block align-text-top" style="cursor: pointer;">`
+);
 
-document.querySelector('#headerSearch').style.visibility = "hidden";
+// document.querySelector('#headerSearch').style.visibility = "hidden";
+
+let searchButton = document.querySelector("#searchButton");
+let headerSearchButton = document.querySelector("#headerSearchButton");
+
+searchButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  let userInput = document.querySelector("#userInput").value;
+  runSearch(userInput);
+});
