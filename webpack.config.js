@@ -13,16 +13,16 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HTMLWebpackPlugin({ //can add more pages to dist
       filename: 'index.html',
-      template: 'src/html/index.html'
+      template: 'src/html/index.html',
     }),
     new HTMLWebpackPlugin({
       filename: 'tx.html',
-      template: 'src/html/tx.html'
+      template: 'src/html/tx.html',
     }),
     new CleanWebpackPlugin(),
     // new CopyPlugin({
@@ -31,18 +31,18 @@ module.exports = {
     //   }],
     // }),
     new MiniCssExtractPlugin({ //load css to file
-      filename: '[name].css'
+      filename: '[name].css',
     })
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'] //style import
+        use: [MiniCssExtractPlugin.loader, 'css-loader'], //style import
       },
       {
         test: /\.(png|jpg|svg)$/,
-        use: 'file-loader?name=[name].[ext]' //images import
+        use: 'file-loader?name=[name].[ext]', //images import
       }
     ]
   },
@@ -52,11 +52,11 @@ module.exports = {
     },
     compress: true,
     port: 8080,
-    liveReload: false
+    liveReload: false,
   },
   optimization: {
     splitChunks: {
-      chunks: 'all' //optimization for libraries load
+      chunks: 'all', //optimization for libraries load
     },
     minimize: true,
     minimizer: [

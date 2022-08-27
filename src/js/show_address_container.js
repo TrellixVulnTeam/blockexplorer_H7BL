@@ -6,11 +6,10 @@ function showAddressContainer(user_address, user_balance, user_tx) {
 
     console.log('showAddressContainer() starts')
 
-    let clear = document.querySelector('#homepage_container')
-    clear.innerHTML = ``
+    document.querySelector('#data_container').innerHTML = ''
 
     if (!document.querySelector('#address_container')) {
-        document.querySelector('#address_container_div').insertAdjacentHTML('beforeend', `
+        document.querySelector('#data_container').insertAdjacentHTML('beforeend', `
             <div class="container mt-3" id="address_container_div_mt-3">
                 <div class="alert alert-light" id="address_container">   
                     <div id="grid_0">

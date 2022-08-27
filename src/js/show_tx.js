@@ -3,8 +3,11 @@ import $ from 'jquery'
 
 console.log('show_tx.js starts')
 
+document.querySelector('#data_container').insertAdjacentHTML('afterend', `
+<span id="tx_container_div"></span>`);
+
 if (!document.querySelector('#table-body')) {
-  document.querySelector('#tx_container_div').insertAdjacentHTML('afterend', `
+  document.querySelector('#data_container').insertAdjacentHTML('afterend', `
     <div class="pagination_container">
       <div id="pagination_wrapper" class="pagination_wrapper"></div>
     </div>

@@ -37,23 +37,24 @@
         <!-- CONTENT MODULE -->
         <main class="main_container">
             <!-- SEARCH -->
-            <div class="container" id="search_field">
-                <form class="d-flex" id="form" onsubmit="return false">
-                    <input class="form-control me-2" type="search" placeholder="Введите адрес вашего bitcoin кошелька"
-                        aria-label="Search" id="userInput">
-                    <div id="searchError"></div>
-                    <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
-                </form>
+            <div id="search_field">
+                <div class="container">
+                    <form class="d-flex" id="form" onsubmit="return false">
+                        <input class="form-control me-2" type="search" placeholder="Введите адрес вашего bitcoin кошелька"
+                            aria-label="Search" id="userInput">
+                        <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
+                    </form>
+                </div>
             </div>
 
+            <div id="search_error"></div>
+
             <!-- DATA -->
-            <div class="container" id="homepage_container"></div>
-
-            <span id="address_container_div"></span>
-
-            <span id="not_found"></span>
-
-            <span id="tx_container_div"></span>
+            <div class="container" id="data_container">
+                <span id="address_container_div"></span>
+                <span id="not_found"></span>
+                <span id="tx_container_div"></span>
+            </div>
 
         </main>
 

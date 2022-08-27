@@ -8,7 +8,6 @@ let searchButton = document.querySelector('#searchButton');
 searchButton.addEventListener('click', event => {
     event.preventDefault();
     let userInput = document.querySelector('#userInput').value;
-    document.querySelector('#search_field').remove();
     runSearch(userInput);
 });
 
@@ -21,39 +20,30 @@ headerSearchButton.addEventListener('click', event => {
 
 function runSearch(userInput) {
 
+    console.log('runSearch starts')
+
     document.querySelector('#headerSearch').style.visibility = "visible";
-
-    let table_body_data = document.querySelector('#table-body');
-    table_body_data.innerHTML = '';
-
-    let pagination_data = document.querySelector('#pagination_wrapper');
-    pagination_data.innerHTML = '';
-
-    let pagination_down_data = document.querySelector('#pagination_wrapper_down');
-    pagination_down_data.innerHTML = '';
-
-    let address_container = document.querySelector('#address_container_div');
-    address_container.innerHTML = '';
-  
+    
     let address_endpoint = new Promise(async function (resolve, reject) {
         let response = await fetch('https://api.blockcypher.com/v1/btc/main/addrs/' + [userInput] + '?limit=9999'); //обработать ошибку
         if (response.ok) { // если HTTP-статус в диапазоне 200-299
             let data = await response.json();
             resolve(data);
+            document.querySelector('#search_error').innerHTML = '';
+            document.querySelector('#search_field').innerHTML = '';
+            document.querySelector('#data_container').innerHTML = '';
         } else {
-
-            let homepage_container = document.querySelector('#homepage_container');
-            homepage_container.innerHTML = '';
-
-            document.querySelector('#searchError').insertAdjacentHTML('afterend', `
-                <div class="container mt-3" id="alert">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Ошибка ввода данных.</strong> Проверьте ваш bitcoin адрес.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            if (!document.querySelector('#check_alert')) {
+                document.querySelector('#search_error').insertAdjacentHTML('beforeend', `
+                    <div class="container mt-3" id="alert">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert" id='check_alert'>
+                            <strong>Ошибка ввода данных.</strong> Проверьте ваш bitcoin адрес.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     </div>
-                </div>
-            `);
-        };
+                `);
+            }
+         }
     });
     address_endpoint.then(data => {
         let arr = data.txrefs;
@@ -65,4 +55,4 @@ function runSearch(userInput) {
         showAddressContainer(user_address, user_balance, user_tx); //shows address container information
     }); 
     
-};
+}
