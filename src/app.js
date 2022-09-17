@@ -11,25 +11,29 @@ import { runSearch } from "./js/api.js";
 
 //TO DO GET error 429 слишком много запросов, зарегистрировать токен чтобы понимать свой лимит
 //TO DO анимация загрузки страницы
-//TO DO кнопка удалить из поиска
+//TO DO кнопка удалить из поиска DONE
 //TO DO возврат на главную страницу при ошибке DONE
-//TO DO bitcoin network load продолжить разработку
+//TO DO bitcoin network load продолжить разработку ЧТО ЭТО?
 //TO DO схему алгоритмов проекта
-//TO DO header заполнить
-//TO DO footer заполнить
-//TO DO подробности транзакции hash link
+//TO DO header заполнить DONE
+//TO DO footer заполнить DONE
+//TO DO подробности транзакции hash link ЧТО ЭТО ПИШИ ПОДРОБНЕЕ?
 //TO DO при переходе на страницу с транзакциями переместить поиск в хэдер DONE
-//TO DO сбивается маржин-топ у мэйн контейнера если ввести длинный адрес
-//TO DO перестала обрабатываться ошибка неправильного ввода (обработать через if?)
-//TO DO сделать пошиск в шапке пошире, надписи на английском
+//TO DO сбивается маржин-топ у мэйн контейнера если ввести длинный адрес DONE
+//TO DO перестала обрабатываться ошибка неправильного ввода (обработать через if?) DONE
+//TO DO заполнить футер, подготовка к релизу
+//TO DO переключение на USD в баллансе (в виде стелочек)
+
 
 console.log("app.js starts");
 
 let logo = document.querySelector("#logo");
 logo.insertAdjacentHTML(
-  "beforebegin",
-  `<img src=${bitcoin_logo} alt="" width="30" 
-height="30" class="d-inline-block align-text-top" style="cursor: pointer;">`
+  "afterbegin",
+  `
+    <img src=${bitcoin_logo} width="30" height="30" class="d-inline-block 
+    align-text-top" style="cursor: pointer;">
+  `
 );
 
 // document.querySelector('#headerSearch').style.visibility = "hidden";
