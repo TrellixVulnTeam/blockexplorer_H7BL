@@ -14,6 +14,8 @@ function runSearch(userInput) {
   </form>
   `;
 
+  let headerSearchButton = document.querySelector("#headerSearchButton");
+
   headerSearchButton.addEventListener("click", (event) => {
     event.preventDefault();
     let headerUserInput = document.querySelector("#headerUserInput").value;

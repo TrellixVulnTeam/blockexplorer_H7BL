@@ -1,3 +1,10 @@
-# blockExplorer_0.0.8
-# webpack
-# nodejs
+## stack
+* node.js
+* webpack
+
+## API
+* blockcypher.com
+
+## to run project use:
+
+`npm run dev_server`

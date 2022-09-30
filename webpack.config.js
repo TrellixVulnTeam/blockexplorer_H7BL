@@ -21,12 +21,7 @@ module.exports = {
       filename: "index.html",
       template: "src/html/index.html",
     }),
-    new HTMLWebpackPlugin({
-      filename: "tx.html",
-      template: "src/html/tx.html",
-    }),
     new CleanWebpackPlugin(),
-
     new MiniCssExtractPlugin({
       //load css to file
       filename: "[name].css",
