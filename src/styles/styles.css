@@ -204,8 +204,15 @@
   height: 545px;
 }
 
-#copy_button_old {
+.fa-copy {
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.fa-copy:hover {
+  white-space: nowrap;
+  cursor: pointer;
+  color: #0d6efd;
 }
 
 #user_address {

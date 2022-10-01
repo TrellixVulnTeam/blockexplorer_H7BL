@@ -19,8 +19,8 @@ function showAddressContainer(user_address, user_balance, user_tx) {
 
             <div class="second_block">
               <div class="address_container">
-                <div>
-                  <span id="copy_button_old" style="cursor: pointer;"><i class="far fa-copy"></i></span>
+                <div class="copyContainer">
+                  <span class="far fa-copy"></span>
                 </div>  
                 <div>
                   <span id="user_address"></span>
@@ -28,9 +28,9 @@ function showAddressContainer(user_address, user_balance, user_tx) {
               </div>
 
               <div class="balance_container">
-                <div>
-                  <!-- <span id="copy_button_old" style="cursor: pointer;"><i class="fa-solid fa-dollar-sign"></i></span> -->
-                  <span id="copy_button_old" style="cursor: pointer;"><i class="fa-solid fa-bitcoin-sign"></i></span> 
+                <div class="curr">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <i class="fa-solid fa-bitcoin-sign"></i>
                 </div>  
                   <div class="balance">
                     <div">balance</div>
@@ -52,8 +52,8 @@ function showAddressContainer(user_address, user_balance, user_tx) {
   document.querySelector("#user_address").innerHTML = user_address;
   document.querySelector("#number_of_tx").innerHTML = user_tx;
 
+  //SUMM FORMAT
   function ammountChange() {
-    //ФОРМАТИРУЕТ СУММУ
     let a = String((user_balance / 100000000).toFixed(8));
     let b = a.replace(/(\d+)(\.\d+)?/g, function (c, b, a) {
       return b.replace(/(\d)(?=(\d{3})+$)/g, "$1 ") + (a ? a : "");
@@ -61,18 +61,24 @@ function showAddressContainer(user_address, user_balance, user_tx) {
     return b;
   }
 
+  //BALANCE
   document.querySelector("#balance").innerHTML = ammountChange();
 
+  //QR CODE
   let qr_code = document.querySelector("#qr_code");
-
   QRCode.toCanvas(qr_code, user_address, { errorCorrectionLevel: "M" });
 
-  let copy_button = document.querySelector("#copy_button_old");
-  copy_button.innerHTML = `<i class="far fa-copy"></i>`;
+  //COPY BUTTON
 
-  copy_button.addEventListener('click', () => {
-    copy_button.innerHTML = `<i class="fas fa-copy"></i>`;
+  document.querySelector('.copyContainer').addEventListener('click', () => {
     navigator.clipboard.writeText(user_address);
+    document.querySelector(".fa-copy").dataset.prefix = 'fas'
+  })
+
+  if (!document.querySelector(".fa-copy").dataset.prefix === 'fas') {
+    return
+  } document.querySelector('.copyContainer').addEventListener('mouseleave', () => {
+    document.querySelector(".fa-copy").dataset.prefix = 'far'
   })
 }
 
